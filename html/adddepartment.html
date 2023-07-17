@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Online Doctor Appointment</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/adminsuccess.css">
+	<link rel="stylesheet" href="../css/register.css">
+	<style>
+	body 
+	{
+		background-image: url("../images/background.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	a{
+		color: cyan;
+	}
+	h3{
+		font-family:Georgia;
+		font-size: 18px;
+	}
+	</style>
+</head>
+<body>
+	<header>
+    <table>
+      <tr>
+        <td rowspan="3";><img src="../images/plus1.jpg" style="width:60%; height:120px;"></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td><div class="navbar">
+              <a href="../index.html"><i class="fa fa-sign-out"></i>Logout</a>
+              <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-user-md"></i>Doctor</button>
+                  <div class="dropdown-content">
+                      <a href="../php/adddoctor.php">Add Doctor</a>
+                      <a href="../php/viewdoctor.php">View Doctor</a>
+                  </div>
+             </div> 
+              <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-hospital-o"></i>Department</button>
+                  <div class="dropdown-content">
+                      <a href="#">Add Department</a>
+                      <a href="../php/adminviewdepartment.php">View Department</a>
+                  </div>
+             </div> 
+        </div></td>
+      </tr>
+    </table>
+  </header>
+  <div class="register">
+<form method="POST" action="../php/adddepartment.php" enctype="multipart/form-data" style="max-width:500px; margin:auto">
+  <fieldset>
+    <legend><h2>Add Department</h2></legend>
+  <label style="font-size: 20px;">Department Name:</label><br>
+    <input class="input-field" type="text" placeholder="Name" name="dname" oninvalid="InvalidMsg(this);" required>
+   <p>
+    <label style="font-size: 20px;">Department Image:</label>
+    <input type="file" name="dimage" accept="image/*" oninvalid="InvalidMsg(this);" required><br></p>
+  <div class="input-container">
+    <textarea placeholder="About department" name="about_dept" rows="8" cols="65" oninvalid="InvalidMsg(this);" required></textarea>
+  </div><br>
+  <center><button type="submit" class="signupbtn">Add</button>&nbsp;&nbsp;&nbsp;
+  <button type="submit" class="cancelbtn" onclick="parent.location='adminsuccess.html'">Cancel</button></center>
+  </fieldset>
+</form>
+</div>
+<script>
+function InvalidMsg(textbox) { 
+            if (textbox.value === '') { 
+				if(textbox.name=='dname'){
+                textbox.setCustomValidity('Entering department name is necessary!'); 
+				}
+				if(textbox.name=='dimage'){
+					textbox.setCustomValidity('Please select an image!'); 
+				}
+				if(textbox.name=='about_dept'){
+                textbox.setCustomValidity('Enter department details'); 
+				}
+            } 
+			else {
+                textbox.setCustomValidity(''); 
+            } 
+            return true; 
+        } 
+</script>
+</body>
+</html>

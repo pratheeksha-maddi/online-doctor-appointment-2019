@@ -1,0 +1,50 @@
+.register{
+  margin-top:-1.5%;
+}
+
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: black;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+/* Set a style for the submit button */
+button {
+  background-color:dodgerblue;
+  color: white;
+   font-family: Georgia;
+  font-size: 16px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.cancelbtn{
+  background-color: red;
+}
+.cancelbtn, .signupbtn {
+  width: 40%;
+}
+.btn:hover {
+  opacity: 1;
+}

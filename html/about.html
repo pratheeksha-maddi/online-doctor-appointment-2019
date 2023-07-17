@@ -1,0 +1,169 @@
+<html>
+<head>
+	<title>Online Doctor Appointment</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/first.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/about.css">
+	<style>
+	body 
+	{
+		background-image: url("../images/background.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	a{
+		color: cyan;
+	}
+	h3{
+		font-family:Georgia;
+		font-size: 18px;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<table>
+			<tr>
+				<td rowspan="3";><img src="../images/plus1.jpg" style="width:60%; height:120px;"></td>
+				<td><div class="navbar">
+  						<a href="#" onclick="login();"><i class="fa fa-pencil-square-o"></i> Book Appointment</a> 
+  						<a href="#" onclick="admin();"><i class="fa fa-fw fa-user"></i> Admin</a>
+  						<a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact us</a> 
+  						<a href="#"><i class="fa fa-address-book-o"></i> About us</a> 
+  						<a href="../php/doctor.php"><i class="fa fa-user-md"></i> Doctor</a> 
+  						<a href="../php/department.php"><i class="fa fa-hospital-o"></i>Department</a> 
+  						<a href="../index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+				</div></td>
+			</tr>
+		</table>
+	</header>
+	<div id="id01" class="modal">
+  
+  <form class="modal-content animate" id="login" action="../php/userlogin.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img id= "userimg" src="../images/loginimage.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" oninvalid="InvalidMsg(this);" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" oninvalid="InvalidMsg(this);" name="psw" required>
+        
+      <button type="submit" style="font-family:Florence; font-size: 18px;"><b>Login</b></button><br>
+	  
+	  <br><center><a id="reset1" href="#" onclick="passwordresetadmin()">Forgot Password?</a></center>
+	  <center><a id="reset" href="#" onclick="passwordresetuser()">Forgot Password?</a></center>
+      <center><p id="para" style="color:white;">New User?&nbsp;&nbsp;<a href="register.html">Register</a></center>
+    </div>
+  </form>
+</div>
+<center><h3><i>"The Hitha World Hospital is committed to advanced medical care through innovative and efficient services, creating an environment of continued quality improvement and expertise of the best physicians. We utilise the most recent medical technologies, advanced clinical methods and develop protocols to improve our outcomes ensuring the good health of the community around us."</i></h3></center>
+<div class="flip-card">
+
+	<div class="flip1">
+  <div class="flip-card-inner1">
+    <div class="flip-card-front">
+      <img src="../images/sys.jpg" style="width:100%; height:100%;"><br><b><h3>System and Processes</h3></b>
+    </div>
+    <div class="flip-card-back">
+     <p>Hospital Supportive services include efficient systems, a systematic process driven approach, advanced technology, advanced rehabilitative services and after care.Nurses and technicians from every corner of the country. Our infrastructure design is compliant with NABH and JCI.</p>
+    </div>
+  </div>
+</div>
+
+<div class="flip2">
+  <div class="flip-card-inner2">
+    <div class="flip-card-front">
+      <img src="../images/quality.jpg" style="width:100%; height:100%;"><br><b><h3>Quality</h3>
+    </div>
+    <div class="flip-card-back">
+     <p>Quality at Hitha covers various aspects of patient care, patient safety, care coordination and patient engagement. Standardised protocols and practices have been set for infection control, emergency services and critical care. Our quality aspiration is to have zero errors. </p>
+    </div>
+  </div>
+</div>
+
+<div class="flip3">
+  <div class="flip-card-inner3">
+    <div class="flip-card-front">
+      <img src="../images/nursing.jpg" style="width:100%; height:100%;"><br><b><h3>Nursing</h3>
+    </div>
+    <div class="flip-card-back">
+     <p>Our nursing protocols are defined by blending the most ethical and advanced of Indian nursing practices.Infection control, medication management & patient safety are the most important components for our nursing care.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+	function login(){
+  document.getElementById('id01').style.display='block'; 
+    document.getElementById('para').style.visibility='visible';
+    document.getElementById('userimg').src='../images/userlogin.jpg';
+    document.getElementById('login').action='../php/userlogin.php';
+	document.getElementById('reset').style.visibility='visible';
+	document.getElementById('reset1').style.visibility='hidden';
+}
+function admin(){
+  document.getElementById('id01').style.display='block';
+  document.getElementById('para').style.visibility='hidden';
+  document.getElementById('userimg').src='../images/loginimage.jpg';
+  document.getElementById('login').action='../php/adminlogin.php';
+  document.getElementById('reset1').style.visibility='visible';
+	document.getElementById('reset').style.visibility='hidden';
+}
+function passwordresetuser(e)
+ {
+	var email = prompt("Please enter your email:");
+	var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+	if (email == '' || !re.test(email))
+	{
+		alert('Please enter a valid email address.');
+		return false;
+	}
+	else
+	{
+	alert('Please check your email for your login credintials');
+	window.location.href = "http://localhost:3000/doctor/php/forget.php?i=1&id="+email;
+	}
+}
+ function passwordresetadmin(e)
+ {
+	var email = prompt("Please enter your email:");
+	var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+	if (email == '' || !re.test(email))
+	{
+		alert('Please enter a valid email address.');
+		return false;
+	}
+	else
+	{
+		if(email=="hithahealthcare@gmail.com"){
+		alert('Please check your email for your login credintials');
+		window.location.href = "http://localhost:3000/doctor/php/forget.php?i=0&id="+email;}
+		else{
+		alert('Please check your email for your login credintials');
+		window.location.href = "http://localhost:3000/doctor/php/forget.php?i=2&id="+email;}
+	}
+ }
+function InvalidMsg(textbox) { 
+            if (textbox.value === '') { 
+				if(textbox.name=='uname'){
+                textbox.setCustomValidity('Entering email name is necessary!'); 
+				}
+				if(textbox.name=='psw'){
+					textbox.setCustomValidity('Please enter password!'); 
+				}
+            } 
+			else {
+                textbox.setCustomValidity(''); 
+            } 
+            return true; 
+        } 
+</script>
+</body>
+</html>

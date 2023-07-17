@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title>Online Doctor Appointment</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/first.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/about.css">
+	<style>
+	body 
+	{
+		background-image: url("../images/background.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	a{
+		color: cyan;
+	}
+	h3{
+		font-family:Georgia;
+		font-size: 18px;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<table>
+			<tr>
+				<td rowspan="3";><img src="../images/plus1.jpg" style="width:60%; height:120px;"></td>
+				<td><div class="navbar">
+  						<a href="#" onclick="login();"><i class="fa fa-pencil-square-o"></i> Book Appointment</a> 
+  						<a href="#" onclick="admin();"><i class="fa fa-fw fa-user"></i> Admin</a>
+  						<a href="#"><i class="fa fa-fw fa-phone"></i> Contact us</a> 
+  						<a href="about.html"><i class="fa fa-address-book-o"></i> About us</a> 
+  						<a href="../php/doctor.php"><i class="fa fa-user-md"></i> Doctor</a> 
+  						<a href="../php/department.php"><i class="fa fa-hospital-o"></i>Department</a> 
+  						<a href="../index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+				</div></td>
+			</tr>
+		</table>
+	</header>
+	<div id="id01" class="modal">
+  
+  <form class="modal-content animate" id="login" action="../php/userlogin.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img id= "userimg" src="../images/loginimage.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" oninvalid="InvalidMsg(this);" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" oninvalid="InvalidMsg(this);" name="psw" required>
+        
+      <button type="submit" style="font-family:Florence; font-size: 18px;"><b>Login</b></button><br>
+	  <br><center><a id="reset1" href="#" onclick="passwordresetadmin()">Forgot Password?</a></center>
+	  <center><a id="reset" href="#" onclick="passwordresetuser()">Forgot Password?</a></center>
+      <center><p id="para" style="color:white;">New User?&nbsp;&nbsp;<a href="register.html">Register</a></center>
+    </div>
+  </form>
+</div>
+<br>
+<br>
+<h1>Hitha Health Care</h1>
+<p style="font-size: 20px;">SY NO 52/2 & 52/3,<br> Devarabeesanahalli,<br> Varthur Hobli,
+
+Bangalore- 560 103.
+
+(Opp Intel, Outer Ring Road, Marathalli)</p>
+<table style="font-size: 20px;">
+<tr><td><b>Feedback:&nbsp;</b><a style="color:blue"href="mailto:nithyahc1998@gmail.com"><img src="../images/email.png" style="width:15px;height:15px"> hithahealthcare@gmail.com</a></td></tr>
+<tr><td><b>Contact Us:&nbsp;</b><a style="color:blue" href="tel:9482486534"><img src="../images/phone.png" style="width:15px;height:15px"> 9482486534</a></td></tr>
+</table>
+<script>
+	function login(){
+  document.getElementById('id01').style.display='block'; 
+    document.getElementById('para').style.visibility='visible';
+    document.getElementById('userimg').src='../images/userlogin.jpg';
+    document.getElementById('login').action='../php/userlogin.php';
+	document.getElementById('reset').style.visibility='visible';
+	document.getElementById('reset1').style.visibility='hidden';
+}
+function admin(){
+  document.getElementById('id01').style.display='block';
+  document.getElementById('para').style.visibility='hidden';
+  document.getElementById('userimg').src='../images/loginimage.jpg';
+  document.getElementById('login').action='../php/adminlogin.php';
+  document.getElementById('reset1').style.visibility='visible';
+	document.getElementById('reset').style.visibility='hidden';
+}
+function passwordresetuser(e)
+ {
+	var email = prompt("Please enter your email:");
+	var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+	if (email == '' || !re.test(email))
+	{
+		alert('Please enter a valid email address.');
+		return false;
+	}
+	else
+	{
+	alert('Please check your email for your login credintials');
+	window.location.href = "http://localhost:3000/doctor/php/forget.php?i=1&id="+email;
+	}
+}
+ function passwordresetadmin(e)
+ {
+	var email = prompt("Please enter your email:");
+	var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+	if (email == '' || !re.test(email))
+	{
+		alert('Please enter a valid email address.');
+		return false;
+	}
+	else
+	{
+		if(email=="hithahealthcare@gmail.com"){
+		alert('Please check your email for your login credintials');
+		window.location.href = "http://localhost:3000/doctor/php/forget.php?i=0&id="+email;}
+		else{
+		alert('Please check your email for your login credintials');
+		window.location.href = "http://localhost:3000/doctor/php/forget.php?i=2&id="+email;}
+	}
+ }
+function InvalidMsg(textbox) { 
+            if (textbox.value === '') { 
+				if(textbox.name=='uname'){
+                textbox.setCustomValidity('Entering email name is necessary!'); 
+				}
+				if(textbox.name=='psw'){
+					textbox.setCustomValidity('Please enter password!'); 
+				}
+            } 
+			else {
+                textbox.setCustomValidity(''); 
+            } 
+            return true; 
+        } 
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.navbar {
+  width: 100%;
+  overflow: auto;
+  float: right;
+}
+
+.navbar a {
+  float: right;
+  padding:14px;
+    color: black;
+  text-align: center;
+  font-size: 22px;
+  font-family: Cambria;
+  text-decoration: none;
+  
+}
+.navbar a:hover {
+  background-color:aliceblue;
+}
+
+@media only screen and (max-width: 300px) 
+  {
+      .text {font-size: 11px}
+  }

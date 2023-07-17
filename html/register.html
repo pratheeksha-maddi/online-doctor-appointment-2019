@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Doctor Appointment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/header.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    a{
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <table>
+      <tr>
+        <td rowspan="3";><img src="../images/plus1.jpg" style="width:60%; height:120px;"></td>
+        <td><div class="navbar">
+              <a href="#"><i class="fa fa-pencil-square-o"></i> Book Appointment</a> 
+              <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact us</a> 
+              <a href="about.html"><i class="fa fa-address-book-o"></i> About us</a> 
+              <a href="../php/doctor.php"><i class="fa fa-user-md"></i> Doctor</a> 
+              <a href="../php/department.php"><i class="fa fa-hospital-o"></i>Department</a> 
+              <a href="../index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+        </div></td>
+      </tr>
+    </table>
+  </header>
+  <div class="register">
+<form action="../php/registerpatient.php" method="post" style="max-width:500px;margin:auto">
+  <fieldset>
+    <legend><h2>Register Form</h2></legend>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" oninvalid="InvalidMsg(this);" placeholder="Name" name="name" required>
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="email" oninvalid="InvalidMsg(this);" placeholder="Email" name="email" required>
+  </div>
+   <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" oninvalid="InvalidMsg(this);" placeholder="Password" name="psw" required>
+  </div>
+    <div class="input-container">
+    <i class="fa fa-phone icon"></i>
+    <input class="input-field" type="text" pattern="[0-9]{10}" oninvalid="InvalidMsg(this);" placeholder="Phone number" name="phoneno" required>
+  </div>
+   <p><i class="fa fa-user icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="gender" value="male" checked> Male&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="gender" value="female"> Female&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="gender" value="other"> Other </p> 
+  <div class="input-container">
+    <i class="fa fa-home icon"></i>
+    <input class="input-field" type="text" placeholder="Address" oninvalid="InvalidMsg(this);" name="address" required>
+  </div>
+  <div class="input-container">
+    <i class="fa fa-calendar-o icon"></i>
+    <input class="input-field" type="date" name="dob" oninvalid="InvalidMsg(this);" required>
+  </div>
+  <center><button type="submit" class="signupbtn">Register</button>&nbsp;&nbsp;&nbsp;
+  <button type="submit" class="cancelbtn" onclick="parent.location='../index.html'">Cancel</button></center>
+  </fieldset>
+</form>
+</div>
+<script>
+function InvalidMsg(textbox) { 
+            if (textbox.value === '') { 
+				if(textbox.name=='name'){
+                textbox.setCustomValidity('please enter your Name'); 
+				}
+				if(textbox.name=='email'){
+                textbox.setCustomValidity('please enter your Email id'); 
+				}
+				if(textbox.name=='psw'){
+					textbox.setCustomValidity('Please enter Password!'); 
+				}
+				if(textbox.name=='phoneno'){
+                textbox.setCustomValidity('please enter your Phone number'); 
+				}
+				if(textbox.name=='address'){
+                textbox.setCustomValidity('please enter your Address'); 
+				}
+				if(textbox.name=='dob'){
+                textbox.setCustomValidity('please enter Date of Birth'); 
+				}
+            } 
+			else {
+                textbox.setCustomValidity(''); 
+            } 
+            return true; 
+        } 
+</script>
+</body>
+</html>

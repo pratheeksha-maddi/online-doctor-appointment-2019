@@ -1,0 +1,83 @@
+.department{
+  margin-top: 1%;
+  margin-bottom: 10%;
+  width:auto;
+  padding:10px;
+  height: auto;
+}
+.docdetails{
+  float: left;
+  margin-left: 3%;
+  padding-top: 0%;
+  width:auto;
+  height:auto;
+  font-family: TimesNewRoman;
+}
+.title {
+  color: grey;
+  font-size: 16px;
+}
+.card{
+  float: left;
+  margin-left: 5%;
+  padding-top: 3%;
+  width:20%;
+  height:28%;
+  text-align: center;
+  font-family: arial;
+}
+input[type=text]
+{
+  width:500px;
+  height:38px;
+}
+
+input[type="text"]:disabled {
+  background: none;
+  border:none;
+}
+input[type="time"]:disabled {
+  background: none;
+  border:none;
+}
+button {
+  background-color:dodgerblue;
+  font-family: Georgia;
+  font-size: 16px;
+  margin-top:10px;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+button:disabled{
+	background-color:#dddddd;
+  font-family: Georgia;
+  font-size: 16px;
+  margin-top:10px;
+  color: black;
+  padding: 12px 18px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+.cancelbtn{
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: Georgia;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:14%;
+}
+.signupbtn {
+  width: 20%;
+}
